@@ -32,6 +32,37 @@ async function generateCopies() {
     }
 }
 
+async function shortenUrl(url) {
+    const longUrlWithUtm = `${url}?utm_source=whatsapp&utm_medium=social&utm_campaign=canal`;
+
+    console.log('URL antes de acortar:', longUrlWithUtm);
+
+    try {
+        const response = await fetch('/shorten-url', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ url: longUrlWithUtm }) // Enviamos la URL al backend
+        });
+
+        if (!response.ok) {
+            const errorData = await response.json();
+            console.error('Error en la solicitud de acortamiento:', errorData);
+            alert('Hubo un error al acortar el enlace. Verifica la URL y los parámetros.');
+            return null;
+        }
+
+        const data = await response.json();
+        console.log('URL acortada:', data.shortenedUrl);
+        return data.shortenedUrl;
+    } catch (error) {
+        console.error('Error al realizar la solicitud:', error);
+        alert('Hubo un error al realizar la solicitud para acortar el enlace.');
+        return null;
+    }
+}
+
 document.getElementById('copyForm').addEventListener('submit', async function (event) {
     event.preventDefault();
 
