@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generador de Copys</title>
+    <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Generador de Copys para Redes Sociales</h1>
+        
+        <!-- Formulario de entrada -->
+        <form id="copyForm">
+            <label for="urlInput">Enlace de la nota:</label>
+            <input type="url" id="urlInput" placeholder="Introduce el enlace aquí" required>
+            <button type="submit">Generar Copys</button>
+        </form>
+
+        <!-- Sección de resultados -->
+        <div id="resultados" class="results-container">
+            <div class="result-item">
+                <h2>Facebook</h2>
+                <textarea id="fbCopy" class="copy-textarea" readonly></textarea>
+                <button class="copy-btn" data-target="fbCopy">Copiar</button>
+            </div>
+            <div class="result-item">
+                <h2>Twitter</h2>
+                <textarea id="twitterCopy" class="copy-textarea" readonly></textarea>
+                <button class="copy-btn" data-target="twitterCopy">Copiar</button>
+            </div>
+            <div class="result-item">
+                <h2>WhatsApp</h2>
+                <textarea id="wppCopy" class="copy-textarea" readonly></textarea>
+                <button class="copy-btn" data-target="wppCopy">Copiar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/assets/script.js"></script>
+</body>
+</html>
