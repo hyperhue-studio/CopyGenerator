@@ -104,6 +104,5 @@ document.querySelectorAll('.copy-btn').forEach(button => {
         const target = document.getElementById(this.dataset.target);
         target.select();
         document.execCommand('copy');
-        alert("Texto copiado al portapapeles.");
     });
 });
