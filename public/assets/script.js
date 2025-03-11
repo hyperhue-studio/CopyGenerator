@@ -73,7 +73,6 @@ document.getElementById('copyForm').addEventListener('submit', async function (e
         return;
     }
 
-    // Realizar la solicitud POST a la API
     try {
         const response = await fetch('/generate-copies', {
             method: 'POST',
@@ -86,10 +85,9 @@ document.getElementById('copyForm').addEventListener('submit', async function (e
         const data = await response.json();
 
         if (response.ok) {
-            // Asignar los valores a los campos
             document.getElementById('fbCopy').value = data.facebook;
             document.getElementById('twitterCopy').value = data.twitter;
-            document.getElementById('wppCopy').value = data.wpp;  // Aquí cambiamos a 'data.wpp'
+            document.getElementById('wppCopy').value = data.wpp;
         } else {
             alert("Hubo un error generando los copys.");
         }
@@ -106,3 +104,40 @@ document.querySelectorAll('.copy-btn').forEach(button => {
         document.execCommand('copy');
     });
 });
+
+// Funcionalidad para copiar la URL original y acortada
+document.getElementById('copyOriginalUrl').addEventListener('click', function () {
+    const urlInput = document.getElementById('urlInput');
+    urlInput.select();
+    document.execCommand('copy');
+    alert("URL Original copiada");
+});
+
+document.getElementById('copyShortenedUrl').addEventListener('click', async function () {
+    const url = document.getElementById('urlInput').value;
+    
+    if (!url) {
+        alert("Por favor, ingresa un enlace válido.");
+        return;
+    }
+
+    try {
+        const response = await fetch('/shorten-url', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ url })
+        });
+
+        const data = await response.json();
+        
+        if (response.ok) {
+            navigator.clipboard.writeText(data.shortenedUrl);
+            alert("URL Acortada copiada");
+        } else {
+            alert("Hubo un error al acortar la URL.");
+        }
+    } catch (error) {
+        alert("Error al comunicar con el servidor.");
+    }
+});
+
