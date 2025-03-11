@@ -10,14 +10,18 @@
     <div class="container">
         <h1>Generador de Copys para Redes Sociales</h1>
         
-        <!-- Formulario de entrada -->
-        <form id="copyForm">
-            <label for="urlInput">Enlace de la nota:</label>
-            <input type="url" id="urlInput" placeholder="Introduce el enlace aquí" required>
-            <button type="submit">Generar Copys</button>
+        <form id="copyForm" class="form-container">
+            <div class="input-group">
+                <label for="urlInput">Enlace de la nota:</label>
+                <input type="url" id="urlInput" placeholder="Introduce el enlace aquí" required>
+            </div>
+            <div class="button-group">
+                <button type="submit">Generar Copys</button>
+                <button type="button" id="copyOriginalUrl">Copiar URL Original</button>
+                <button type="button" id="copyShortenedUrl">Copiar URL Acortada</button>
+            </div>
         </form>
 
-        <!-- Sección de resultados -->
         <div id="resultados" class="results-container">
             <div class="result-item">
                 <h2>Facebook</h2>
@@ -36,7 +40,7 @@
             </div>
         </div>
     </div>
-
+    
     <script src="/assets/script.js"></script>
 </body>
 </html>
