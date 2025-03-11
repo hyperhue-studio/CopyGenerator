@@ -188,4 +188,25 @@ textarea {
     .result-item.half {
         width: 100%;
     }
+    
+    .input-group {
+        flex-direction: column;  /* Apilar los elementos en lugar de alinearlos horizontalmente */
+        gap: 10px;  /* Añadir espacio entre los elementos */
+        align-items: stretch;  /* Asegurarse de que los elementos ocupen todo el ancho */
+    }
+
+    #pasteUrl, #urlInput, button[type="submit"] {
+        width: 100%;  /* Hacer que todos los elementos ocupen el 100% del ancho */
+        font-size: 1rem;  /* Ajustar el tamaño de fuente para mayor legibilidad */
+    }
+
+    /* Aseguramos que los botones en la parte inferior también se ajusten */
+    .button-group {
+        flex-direction: column;  /* Apilar los botones */
+    }
+
+    .button-group button {
+        width: 100%;  /* Los botones ocupan todo el ancho */
+        margin: 5px 0;  /* Añadir margen entre los botones */
+    }
 }
