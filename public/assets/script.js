@@ -28,7 +28,7 @@ async function generateCopies() {
         }
     } catch (error) {
         console.error("Error generando los copys:", error);
-        alert("Hubo un error al generar los copys. Inténtalo de nuevo.");
+        ("Hubo un error al generar los copys. Inténtalo de nuevo.");
     }
 }
 
@@ -49,7 +49,7 @@ async function shortenUrl(url) {
         if (!response.ok) {
             const errorData = await response.json();
             console.error('Error en la solicitud de acortamiento:', errorData);
-            alert('Hubo un error al acortar el enlace. Verifica la URL y los parámetros.');
+            ('Hubo un error al acortar el enlace. Verifica la URL y los parámetros.');
             return null;
         }
 
@@ -58,7 +58,7 @@ async function shortenUrl(url) {
         return data.shortenedUrl;
     } catch (error) {
         console.error('Error al realizar la solicitud:', error);
-        alert('Hubo un error al realizar la solicitud para acortar el enlace.');
+        ('Hubo un error al realizar la solicitud para acortar el enlace.');
         return null;
     }
 }
@@ -69,7 +69,7 @@ document.getElementById('copyForm').addEventListener('submit', async function (e
     const url = document.getElementById('urlInput').value;
 
     if (!url) {
-        alert("Por favor, ingresa un enlace válido.");
+        ("Por favor, ingresa un enlace válido.");
         return;
     }
 
@@ -89,10 +89,10 @@ document.getElementById('copyForm').addEventListener('submit', async function (e
             document.getElementById('twitterCopy').value = data.twitter;
             document.getElementById('wppCopy').value = data.wpp;
         } else {
-            alert("Hubo un error generando los copys.");
+            ("Hubo un error generando los copys.");
         }
     } catch (error) {
-        alert("Error en la comunicación con el servidor.");
+        ("Error en la comunicación con el servidor.");
     }
 });
 
@@ -110,7 +110,6 @@ document.getElementById('copyOriginalUrl').addEventListener('click', function ()
     const urlInput = document.getElementById('urlInput');
     urlInput.select();
     document.execCommand('copy');
-    alert("URL Original copiada");
 });
 
 // Función para pegar la URL desde el portapapeles
@@ -143,7 +142,6 @@ document.getElementById('copyShortenedUrl').addEventListener('click', async func
         
         if (response.ok) {
             navigator.clipboard.writeText(data.shortenedUrl);
-            alert("URL Acortada copiada");
         } else {
             alert("Hubo un error al acortar la URL.");
         }
