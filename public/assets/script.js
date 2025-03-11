@@ -113,6 +113,17 @@ document.getElementById('copyOriginalUrl').addEventListener('click', function ()
     alert("URL Original copiada");
 });
 
+// Función para pegar la URL desde el portapapeles
+document.getElementById('pasteUrl').addEventListener('click', async function () {
+    try {
+        const text = await navigator.clipboard.readText(); // Lee el texto del portapapeles
+        document.getElementById('urlInput').value = text;  // Pega el texto en el campo de entrada
+    } catch (error) {
+        alert("No se pudo pegar el contenido del portapapeles.");
+    }
+});
+
+
 document.getElementById('copyShortenedUrl').addEventListener('click', async function () {
     const url = document.getElementById('urlInput').value;
     
