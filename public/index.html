@@ -8,37 +8,47 @@
 </head>
 <body>
     <div class="container">
-        <h1>Generador de Copys para Redes Sociales</h1>
+        <h1>Generador de Copys</h1>
 
         <!-- Formulario de entrada -->
         <form id="copyForm">
             <label for="urlInput">Enlace de la nota:</label>
             <div class="input-group">
+                <!-- Botón para pegar el URL -->
+                <button type="button" id="pasteUrl" title="Pegar URL desde el portapapeles">Pegar</button>
                 <input type="url" id="urlInput" placeholder="Introduce el enlace aquí" required>
                 <button type="submit">Generar</button>
             </div>
             <div class="button-group">
-                <button id="copyOriginalUrl">Copiar URL Original</button>
-                <button id="copyShortenedUrl">Copiar URL Acortada</button>
+                <button type="button" id="copyOriginalUrl">Copiar URL Original</button>
+                <button type="button" id="copyShortenedUrl">Copiar URL Acortada</button>
             </div>
         </form>
+        
 
         <!-- Sección de resultados -->
         <div id="resultados">
-            <div class="result-item">
-                <h2>Facebook</h2>
-                <textarea id="fbCopy" readonly></textarea>
-                <button class="copy-btn" data-target="fbCopy">Copiar</button>
+            <!-- Primera fila: Facebook y Twitter -->
+            <div class="result-row">
+                <div class="result-item half">
+                    <h2>Facebook</h2>
+                    <textarea id="fbCopy" readonly></textarea>
+                    <button class="copy-btn" data-target="fbCopy">Copiar</button>
+                </div>
+                <div class="result-item half">
+                    <h2>Twitter</h2>
+                    <textarea id="twitterCopy" readonly></textarea>
+                    <button class="copy-btn" data-target="twitterCopy">Copiar</button>
+                </div>
             </div>
-            <div class="result-item">
-                <h2>Twitter</h2>
-                <textarea id="twitterCopy" readonly></textarea>
-                <button class="copy-btn" data-target="twitterCopy">Copiar</button>
-            </div>
-            <div class="result-item">
-                <h2>WhatsApp</h2>
-                <textarea id="wppCopy" readonly></textarea>
-                <button class="copy-btn" data-target="wppCopy">Copiar</button>
+
+            <!-- Segunda fila: WhatsApp -->
+            <div class="result-row full-width">
+                <div class="result-item full">
+                    <h2>WhatsApp</h2>
+                    <textarea id="wppCopy" readonly></textarea>
+                    <button class="copy-btn" data-target="wppCopy">Copiar</button>
+                </div>
             </div>
         </div>
     </div>
