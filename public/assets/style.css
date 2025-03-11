@@ -1,12 +1,14 @@
+/* RESET: Reiniciamos márgenes y paddings */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* Fuente principal */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #2e2e2e;
+    background-color: #141414;  /* Fondo más oscuro */
     color: #ddd;
     padding: 20px;
     display: flex;
@@ -21,18 +23,22 @@ body {
     width: 90%;
     max-width: 900px;
     text-align: center;
-    background-color: #3a3a3a;
+    background-color: #222;  /* Fondo oscuro para el contenedor */
     padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    border-radius: 12px; /* Bordes más redondeados */
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); /* Sombra más pronunciada */
     display: flex;
     flex-direction: column;
+    border: 3px solid #444; /* Contorno del contenedor */
 }
 
 /* Título */
 h1 {
-    font-size: 1.8rem;
+    font-size: 1.9rem;
     margin-bottom: 20px;
+    color: #fff;
+    border-bottom: 2px solid #444; /* Línea de separación debajo del título */
+    padding-bottom: 10px;
 }
 
 /* Etiqueta */
@@ -40,6 +46,7 @@ label {
     font-size: 1rem;
     display: block;
     margin-bottom: 10px;
+    color: #bbb; /* Gris claro para las etiquetas */
 }
 
 /* Grupo de entrada */
@@ -49,33 +56,42 @@ label {
     align-items: center;
 }
 
+/* Estilo de entrada de texto */
 input {
     flex: 1;
-    padding: 10px;
+    padding: 14px;
     font-size: 1rem;
-    border: none;
-    border-radius: 5px;
-    background-color: #444;
+    border: 3px solid #444;  /* Bordes gruesos */
+    border-radius: 10px;
+    background-color: #333;
     color: #fff;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+input:focus {
+    outline: none;
+    border-color: #007BFF;  /* Resalta al enfocar */
+    background-color: #444; /* Fondo ligeramente más claro */
 }
 
 /* Botón de generar */
 button {
-    padding: 10px 15px;
-    border: none;
+    margin-top: 15px;  /* Ajustamos el padding aquí */
+    padding: 14px 28px;
+    background-color: #555;  /* Gris oscuro */
+    color: #fff;  /* Color claro */
+    font-size: 1.1rem;
+    font-weight: bold;
+    border: 3px solid #333;  /* Borde oscuro */
+    border-radius: 12px; /* Bordes redondeados */
     cursor: pointer;
-    border-radius: 5px;
-    font-size: 1rem;
-    transition: 0.3s;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
-button[type="submit"] {
-    background-color: #007BFF;
-    color: white;
-}
-
-button[type="submit"]:hover {
-    background-color: #0056b3;
+button:hover {
+    background-color: #fff;  /* Fondo blanco al hacer hover */
+    color: #141414;  /* Texto negro */
+    border-color: #333;  /* Borde más oscuro al hacer hover */
 }
 
 /* Botones para copiar URLs */
@@ -88,30 +104,39 @@ button[type="submit"]:hover {
 .button-group button {
     flex: 1;
     margin: 5px;
-    background-color: #666;
+    background-color: #555;  /* Gris más claro */
     color: white;
+    font-weight: bold;
+    border: 3px solid #333;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .button-group button:hover {
-    background-color: #555;
+    background-color: #fff;  /* Fondo blanco */
+    color: #141414;  /* Texto negro */
+    border-color: #333;  /* Borde oscuro al hacer hover */
 }
 
 /* Botón de Pegar URL */
 #pasteUrl {
-    padding: 10px;
+    padding: 12px 20px;
     background-color: #28a745;  /* Verde */
     color: white;
-    border: none;
-    border-radius: 5px;
+    border: 3px solid #444;  /* Borde oscuro */
+    border-radius: 12px;
     cursor: pointer;
     font-size: 1rem;
     transition: 0.3s;
 }
 
 #pasteUrl:hover {
-    background-color: #218838;
+    background-color: #fff;
+    color: #141414;  /* Texto negro */
+    border-color: #333;  /* Borde más oscuro */
 }
-
 
 /* Resultados organizados en filas */
 #resultados {
@@ -137,9 +162,10 @@ button[type="submit"]:hover {
 .result-item {
     flex: 1;
     background-color: #4a4a4a;
-    padding: 15px;
-    border-radius: 5px;
+    padding: 20px;
+    border-radius: 10px;
     text-align: center;
+    border: 3px solid #444; /* Bordes más gruesos */
 }
 
 /* Facebook y Twitter ocupan la mitad */
@@ -156,23 +182,38 @@ button[type="submit"]:hover {
 textarea {
     width: 100%;
     height: 80px;
-    padding: 10px;
-    border: none;
-    border-radius: 5px;
-    background-color: #555;
+    padding: 14px;
+    border: 3px solid #444;  /* Bordes más gruesos */
+    border-radius: 10px;
+    background-color: #333;
     color: white;
     resize: none;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+textarea:focus {
+    outline: none;
+    border-color: #007BFF;  /* Resalta al enfocar */
+    background-color: #444; /* Fondo ligeramente más claro */
 }
 
 /* Botón "Copiar" con nuevo color */
 .copy-btn {
     background-color: #0056b3;
     color: white;
-    margin-top: 5px;
+    margin-top: 10px;
+    border: 3px solid #333;
+    border-radius: 12px;
+    padding: 10px 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .copy-btn:hover {
-    background-color: #003d82;
+    background-color: #fff;
+    color: #141414; /* Texto negro */
+    border-color: #333; /* Borde más oscuro */
 }
 
 /* Responsividad para pantallas pequeñas */
@@ -187,26 +228,5 @@ textarea {
 
     .result-item.half {
         width: 100%;
-    }
-    
-    .input-group {
-        flex-direction: column;  /* Apilar los elementos en lugar de alinearlos horizontalmente */
-        gap: 10px;  /* Añadir espacio entre los elementos */
-        align-items: stretch;  /* Asegurarse de que los elementos ocupen todo el ancho */
-    }
-
-    #pasteUrl, #urlInput, button[type="submit"] {
-        width: 100%;  /* Hacer que todos los elementos ocupen el 100% del ancho */
-        font-size: 1rem;  /* Ajustar el tamaño de fuente para mayor legibilidad */
-    }
-
-    /* Aseguramos que los botones en la parte inferior también se ajusten */
-    .button-group {
-        flex-direction: column;  /* Apilar los botones */
-    }
-
-    .button-group button {
-        width: 100%;  /* Los botones ocupan todo el ancho */
-        margin: 5px 0;  /* Añadir margen entre los botones */
     }
 }
