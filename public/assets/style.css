@@ -12,9 +12,10 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden;
+    min-height: 100vh; /* Cambiado de height: 100vh a min-height */
+    overflow: auto; /* Se activa el scroll si es necesario */
 }
+
 
 /* Contenedor principal */
 .container {
