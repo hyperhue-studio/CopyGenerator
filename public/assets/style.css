@@ -13,32 +13,40 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
+    overflow: hidden;
 }
 
+/* Contenedor principal */
 .container {
     width: 90%;
-    max-width: 600px;
+    max-width: 900px;
     text-align: center;
     background-color: #3a3a3a;
     padding: 30px;
     border-radius: 10px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
 }
 
+/* Título */
 h1 {
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
+/* Etiqueta */
 label {
     font-size: 1rem;
     display: block;
     margin-bottom: 10px;
 }
 
+/* Grupo de entrada */
 .input-group {
     display: flex;
     gap: 10px;
+    align-items: center;
 }
 
 input {
@@ -51,6 +59,7 @@ input {
     color: #fff;
 }
 
+/* Botón de generar */
 button {
     padding: 10px 15px;
     border: none;
@@ -69,6 +78,7 @@ button[type="submit"]:hover {
     background-color: #0056b3;
 }
 
+/* Botones para copiar URLs */
 .button-group {
     display: flex;
     justify-content: space-between;
@@ -86,17 +96,35 @@ button[type="submit"]:hover {
     background-color: #555;
 }
 
+/* Resultados en landscape */
 #resultados {
+    display: flex;
+    flex-direction: column;
     margin-top: 20px;
 }
 
+/* Primera fila: Facebook y Twitter */
+.result-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+/* Segunda fila: WhatsApp ocupa todo el ancho */
+.result-row.full-width {
+    flex-direction: column;
+}
+
+/* Estilos de cada bloque de resultado */
 .result-item {
+    flex: 1;
     background-color: #4a4a4a;
     padding: 15px;
     border-radius: 5px;
-    margin-bottom: 10px;
+    text-align: center;
 }
 
+/* Estilos del textarea */
 textarea {
     width: 100%;
     height: 80px;
@@ -108,12 +136,24 @@ textarea {
     resize: none;
 }
 
+/* Botón "Copiar" con nuevo color */
 .copy-btn {
-    background-color: #28a745;
+    background-color: #0056b3;
     color: white;
     margin-top: 5px;
 }
 
 .copy-btn:hover {
-    background-color: #218838;
+    background-color: #003d82;
+}
+
+/* Responsividad para pantallas pequeñas */
+@media (max-width: 768px) {
+    body {
+        overflow: auto;
+    }
+    
+    .result-row {
+        flex-direction: column;
+    }
 }
