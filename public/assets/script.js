@@ -7,7 +7,6 @@ async function generateCopies() {
     }
 
     try {
-        // Enviar el enlace al backend
         const response = await fetch("/generate-copies", {
             method: "POST",
             headers: {
@@ -21,10 +20,9 @@ async function generateCopies() {
         if (data.error) {
             alert(data.error);
         } else {
-            // Mostrar los copys generados en los campos respectivos
             document.getElementById("fb-copy").innerText = data.facebook;
             document.getElementById("twitter-copy").innerText = data.twitter;
-            document.getElementById("wpp-copy").innerText = data.wpp;  // Aquí cambiamos a 'data.wpp'
+            document.getElementById("wpp-copy").innerText = data.wpp;
         }
     } catch (error) {
         console.error("Error generando los copys:", error);
@@ -43,7 +41,7 @@ async function shortenUrl(url) {
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ url: longUrlWithUtm }) // Enviamos la URL al backend
+            body: JSON.stringify({ url: longUrlWithUtm })
         });
 
         if (!response.ok) {
@@ -96,7 +94,6 @@ document.getElementById('copyForm').addEventListener('submit', async function (e
     }
 });
 
-// Función para copiar al portapapeles
 document.querySelectorAll('.copy-btn').forEach(button => {
     button.addEventListener('click', function () {
         const target = document.getElementById(this.dataset.target);
@@ -105,18 +102,16 @@ document.querySelectorAll('.copy-btn').forEach(button => {
     });
 });
 
-// Funcionalidad para copiar la URL original y acortada
 document.getElementById('copyOriginalUrl').addEventListener('click', function () {
     const urlInput = document.getElementById('urlInput');
     urlInput.select();
     document.execCommand('copy');
 });
 
-// Función para pegar la URL desde el portapapeles
 document.getElementById('pasteUrl').addEventListener('click', async function () {
     try {
-        const text = await navigator.clipboard.readText(); // Lee el texto del portapapeles
-        document.getElementById('urlInput').value = text;  // Pega el texto en el campo de entrada
+        const text = await navigator.clipboard.readText();
+        document.getElementById('urlInput').value = text;
     } catch (error) {
         alert("No se pudo pegar el contenido del portapapeles.");
     }
@@ -149,4 +144,3 @@ document.getElementById('copyShortenedUrl').addEventListener('click', async func
         alert("Error al comunicar con el servidor.");
     }
 });
-
